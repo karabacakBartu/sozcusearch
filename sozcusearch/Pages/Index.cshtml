@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "News";
+}
+
+<h1>Articles</h1>
+<form method="get" asp-page="/Index">
+    <input type="text" name="query" placeholder="Search articles..." />
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+    @foreach (var article in Model.Articles)
+    {
+        <li>
+            <h3>@article.Title</h3>
+            <a href="@article.Url">Daha fazla...</a>
+            <img src="@article.Img" alt="@article.Title"/>
+        </li>
+    }
+</ul>
